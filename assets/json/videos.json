@@ -1,0 +1,83 @@
+[
+    {
+        "id": "A",
+        "name": "JavaScript 1",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 11
+    },
+    {
+        "id": "B",
+        "name": "JavaScript 2",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 11
+    },
+    {
+        "id": "C",
+        "name": "JavaScript 3",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 11
+    },
+    {
+        "id": "D",
+        "name": "Asynchrone 1",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 12
+    },
+    {
+        "id": "E",
+        "name": "Asynchrone 2",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 12
+    },
+    {
+        "id": "F",
+        "name": "PHP 1",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 21
+    },
+    {
+        "id": "G",
+        "name": "PHP 2",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 21
+    },
+    {
+        "id": "H",
+        "name": "Flutter 1",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 31
+    },
+    {
+        "id": "I",
+        "name": "Flutter 2",
+        "ref": "",
+        "image": "",
+        "duration": "",
+        "author": "",
+        "playlist_id": 31
+    }
+]
