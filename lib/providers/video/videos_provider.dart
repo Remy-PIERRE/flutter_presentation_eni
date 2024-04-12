@@ -9,6 +9,8 @@ class VideosProvider extends ChangeNotifier {
   List<Map> categories = [];
   List<Map> playlists = [];
   List<Map> videos = [];
+  int? categorySelected;
+  int? playlistSelected;
 
   VideosProvider() {
     setupData();
@@ -79,33 +81,69 @@ class VideosProvider extends ChangeNotifier {
     ) ? false : true;    
   }
 
+  void setCategorySelected(int categoryId) {
+    categorySelected = categoryId;
+
+    notifyListeners();
+  }
+
   List<Map> getCategories() {
     return categories;
   }
 
+  Map getCategorySelected() {
+    return categories.firstWhere((category) => 
+      category["id"] == categorySelected,
+      orElse: () => {
+        "id": 1,
+        "name": "JavaScript"
+      }
+    );
+  }
+
+  void setPlaylistSelected(int playlistId) {
+    playlistSelected = playlistId;
+
+    notifyListeners();
+  }
+
+  Map getPlaylistSelected() {
+    return playlists.firstWhere((playlist) => 
+      playlist["id"] == playlistSelected,
+      orElse: () => {
+        "id": 10,
+        "name": "JavaScript de A à Z",
+        "image": "",
+        "description": "Découvrez le langage de programmation JavaScript sous tous ses angles avec cette playlist complète. Des bases fondamentales aux concepts avancés, chaque vidéo vous guidera à travers les aspects essentiels de JavaScript. Explorez les boucles, les fonctions, les objets, la manipulation du DOM, les événements, et bien plus encore. Que vous soyez débutant ou développeur expérimenté, cette série vous permettra de maîtriser JavaScript de manière exhaustive, vous donnant les compétences nécessaires pour créer des applications web dynamiques et interactives. Plongez dans l'univers de JavaScript et développez votre expertise pas à pas.",
+        "category_id": 1
+      }
+    );
+  }
+  
   Map getNewerVideo() {
     return videos[0];
   }
 
-  List<Map> getNewVideos() {
+  List<Map> getNewPlaylists() {
     return [
-      videos[1],
-      videos[2],
+      playlists[1],
+      playlists[2],
     ];
   }
     
-  List<Map> getVideosByCategoryId(int categoryId) {
-    List<Map> videosSelected = [];
+  List<Map> getPlaylistsByCategoryId(int categoryId) {
+    List<Map> playlistsSelected = [];
 
-    for (Map video in videos) {
-      Map playlist = playlists.firstWhere((element) => element["id"] == video["playlist_id"],
-        orElse: () => {});
-
-      if (playlist.containsKey("category_id") && playlist["category_id"] == categoryId) {
-        videosSelected.add(video);
+    for (Map playlist in playlists) {
+      if (playlist["category_id"] == categoryId) {
+        playlistsSelected.add(playlist);
       }
-    }
+    }    
 
-    return videosSelected;
+    return playlistsSelected;
+  }
+
+  List<Map> getVideosByPlaylistId(int playlistId) {
+    return videos.where((video) => video["playlist_id"] == playlistId).toList();      
   }
 }

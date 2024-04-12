@@ -12,8 +12,6 @@ class NewerVideo extends StatelessWidget {
   @override
   Widget build(BuildContext context){
 
-    print("Video : $video");
-
     // TODO - InkWell => video_page //
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

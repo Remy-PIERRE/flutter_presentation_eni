@@ -1,6 +1,6 @@
 import 'package:eni_service_presentation_v2/pages/home/home_page.dart';
 import 'package:eni_service_presentation_v2/pages/playlist/playlist_page.dart';
-import 'package:eni_service_presentation_v2/pages/theme/theme_page.dart';
+import 'package:eni_service_presentation_v2/pages/category/category_page.dart';
 import 'package:eni_service_presentation_v2/pages/video/video_page.dart';
 import 'package:eni_service_presentation_v2/providers/video/videos_provider.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(),
-        "/theme": (context) => const ThemePage(),
+        "/category": (context) => const CategoryPage(),
         "/playlist": (context) => const PlaylistPage(),
-        "/video": (context) => const VideoPage(), 
+        "/video": (context) => VideoPage(), 
       },
     );
   }

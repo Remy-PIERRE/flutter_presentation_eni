@@ -1,6 +1,6 @@
 import "package:eni_service_presentation_v2/components/app_bar_custom.dart";
 import "package:eni_service_presentation_v2/components/loading.dart";
-import "package:eni_service_presentation_v2/pages/home/components/category_videos.dart";
+import "package:eni_service_presentation_v2/pages/home/components/category_playlists.dart";
 import "package:eni_service_presentation_v2/pages/home/components/newer_video.dart";
 import "package:eni_service_presentation_v2/providers/video/videos_provider.dart";
 import "package:flutter/material.dart";
@@ -19,8 +19,8 @@ const HomePage({ Key? key }) : super(key: key);
           constraints: BoxConstraints(
             minHeight: MediaQuery.of(context).size.height - 60,
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
+          child: const Padding(
+            padding: EdgeInsets.symmetric(
               horizontal: 20.0,
               vertical: 28.0,
             ),
@@ -61,15 +61,19 @@ class HomePageContent extends StatelessWidget {
         return Column(
           children: [
             NewerVideo(video: _videosProvider.getNewerVideo()),
-            CategoryVideos(
+            CategoryPlaylists(
               category: {"id": 0, "name": "Nouveautés"},
-              videos: _videosProvider.getNewVideos(),
+              playlists: _videosProvider.getNewPlaylists(),
+              setCategorySelected: _videosProvider.setCategorySelected,
+              setPlaylistSelected: _videosProvider.setPlaylistSelected,
             ),
             for (Map category in _videosProvider.getCategories())
-              if (!_videosProvider.getVideosByCategoryId(category["id"]).isEmpty)
-                CategoryVideos(
+              if (_videosProvider.getPlaylistsByCategoryId(category["id"]).isNotEmpty)
+                CategoryPlaylists(
                   category: category,
-                  videos: _videosProvider.getVideosByCategoryId(category["id"]),
+                  playlists: _videosProvider.getPlaylistsByCategoryId(category["id"]),
+              setCategorySelected: _videosProvider.setCategorySelected,
+                  setPlaylistSelected: _videosProvider.setPlaylistSelected,
                 )
           ],
         );
